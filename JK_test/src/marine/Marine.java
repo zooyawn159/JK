@@ -2,14 +2,23 @@ package marine;
 
 public class Marine {
     public static void main(String[] args) {
-        String[] creatures = {"🐋 고래", "🦑 오징어", "🐙 문어", "🦈 상어"};
-        int depth = 0;
+        SeaCreature[] creatures = {
+            new SeaCreature("🐋 고래",  200, "우우우~"),
+            new SeaCreature("🦑 오징어", 400, "....(무언의 먹물)"),
+            new SeaCreature("🐙 문어",  600, "슉슉"),
+            new SeaCreature("🦈 상어",  800, "...")
+        };
 
         System.out.println("=== 바다 탐험 시작 ===");
-        for (String c : creatures) {
-            depth += 200;
-            System.out.println("수심 " + depth + "m: " + c + " 발견!");
+        for (SeaCreature c : creatures) {
+            c.introduce();
         }
-        System.out.println("🌊 탐험 완료. 총 수심: " + depth + "m");
+
+        // 가장 깊은 곳에 사는 생물 찾기
+        SeaCreature deepest = creatures[0];
+        for (SeaCreature c : creatures) {
+            if (c.getDepth() > deepest.getDepth()) deepest = c;
+        }
+        System.out.println("🏆 최심해 생물: " + deepest.getName());
     }
 }
