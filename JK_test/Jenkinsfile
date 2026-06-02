@@ -5,7 +5,10 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'if not exist classes mkdir classes'
-                bat 'javac -encoding UTF-8 -d classes Practice/src/**/*.java'
+                // 1. Practice/src 폴더 안의 모든 .java 파일 목록을 주소창에 기록
+                bat 'dir /s /b Practice\\src\\*.java > sources.txt'
+                // 2. 기록된 파일 목록을 읽어서 컴파일
+                bat 'javac -encoding UTF-8 -d classes @sources.txt'
             }
         }
         stage('Test') {
