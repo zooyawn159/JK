@@ -17,7 +17,8 @@ pipeline {
         stage('Test') {
             steps {
                 // JUnit 5 테스트 실행을 위한 classpath 설정 및 실행 스크립트
-                // (PPT 오른쪽 페이지에 있는 내용 입력)
+                def classpath = "classes;lib/; path/to/eclipse/plugins/junit-platform-colsole-standalone-1.7.1.jar"
+                bat 'java-cp classes;lib/; path to eclipse/plugins/junit-platform-console-standalone-1.7.1.jar org.junit.platform.console.ConsoleLauncher --scan-classpat > test_results.txt'
             }
         }
     }
