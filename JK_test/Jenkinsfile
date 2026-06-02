@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                bat 'if not exist classes mkdir classes'
+                bat 'dir /s /b "JK_test\\src\\*.java" > sources.txt'
+                bat 'javac -encoding UTF-8 -d classes @sources.txt'
+            }
+        }
+        stage('Test') {
+            steps {
+                bat 'java -cp "classes;JK_test\\lib\\junit-platform-console-standalone-1.7.1.jar" org.junit.platform.console.ConsoleLauncher --scan-classpath > test_results.txt'
+            }
+        }
+    }
+    post {
+        always {
+            archiveArtifacts artifacts: 'test_results.txt', allowEmptyArchive: true
+        }
+        failure {
+            echo 'Build or test failed'
+        }
+        success {
+            echo 'Build and test succeeded'
+        }
+    }
+}
