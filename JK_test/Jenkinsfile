@@ -1,18 +1,16 @@
 pipeline {
     agent any
-
     stages {
         stage('Build') {
             steps {
                 bat 'if not exist classes mkdir classes'
-                // 역슬래시(\) 대신 슬래시(/)를 사용해 경로를 지정해 봅니다.
-                bat 'dir /s /b "Practice/src/*.java" > sources.txt'
+                bat 'dir /s /b "JK_test\\src\\*.java" > sources.txt'
                 bat 'javac -encoding UTF-8 -d classes @sources.txt'
             }
         }
         stage('Test') {
             steps {
-                bat 'java -cp "classes;lib/junit-platform-console-standalone-1.7.1.jar" org.junit.platform.console.ConsoleLauncher --scan-classpath > test_results.txt'
+                bat 'java -cp "classes;JK_test\\lib\\junit-platform-console-standalone-1.7.1.jar" org.junit.platform.console.ConsoleLauncher --scan-classpath > test_results.txt'
             }
         }
     }
