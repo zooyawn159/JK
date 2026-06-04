@@ -6,7 +6,6 @@ pipeline {
                 bat 'if not exist classes mkdir classes'
                 bat 'dir /s /b "JK_test\\src\\*.java" > sources.txt'
                 
-                // 💡여기에 -cp 옵션을 추가하여 컴파일러가 JUnit 라이브러리를 읽을 수 있게 만듭니다.
                 bat 'javac -encoding UTF-8 -cp "JK_test\\lib\\junit-platform-console-standalone-1.7.1.jar" -d classes @sources.txt'
             }
         }
