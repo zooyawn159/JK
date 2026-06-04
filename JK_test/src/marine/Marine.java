@@ -3,10 +3,10 @@ package marine;
 public class Marine {
     public static void main(String[] args) {
         SeaCreature[] creatures = {
-            new SeaCreature("🐋 고래",  200, "우우우~"),
-            new SeaCreature("🦑 오징어", 400, "....(무언의 먹물)"),
-            new SeaCreature("🐙 문어",  600, "슉슉"),
-            new SeaCreature("🦈 상어",  800, "...")
+            new SeaCreature("🐋 고래",  100, "우우우~"),
+            new SeaCreature("🦑 오징어", 300, "....(무언의 먹물)"),
+            new SeaCreature("🐙 문어",  800, "슉슉"),
+            new SeaCreature("🦈 상어",  1000, "...")
         };
 
         System.out.println("=== 바다 탐험 시작 ===");
