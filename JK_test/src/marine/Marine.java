@@ -6,7 +6,7 @@ public class Marine {
             new SeaCreature("🐋 고래",  100, "우우우~"),
             new SeaCreature("🦑 오징어", 300, "....(무언의 먹물)"),
             new SeaCreature("🐙 문어",  800, "슉슉"),
-            new SeaCreature("🦈 상어",  990, "...")
+            new SeaCreature("🦈 상어",  9990, "...")
         };
 
         System.out.println("=== 바다 탐험 시작 ===");
